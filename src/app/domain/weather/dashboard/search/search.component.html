@@ -1,0 +1,8 @@
+<header class="toolbar">
+  <img src="assets/weather/weatherman.png" alt="best weather" />
+  <app-search-location
+    style="width: 80%"
+    [location]="location"
+    (locationSelected)="searchSelected.emit($event)"
+  ></app-search-location>
+</header>

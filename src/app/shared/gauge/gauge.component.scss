@@ -1,0 +1,49 @@
+.ring {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background-image: radial-gradient(white 0, white 50%, transparent 50%),
+    conic-gradient(
+      lightblue 0,
+      yellow 20deg,
+      orange 40deg,
+      red 60deg,
+      darkred 90deg,
+      white 90deg,
+      white 270deg,
+      darkblue 270deg,
+      lightblue 360deg
+    );
+  background-size: 100% 100%, 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center, center center;
+  border-radius: 50%;
+  border-style: none;
+}
+
+.needle {
+  position: absolute;
+  z-index: 2;
+  content: "";
+  top: 25%;
+  left: 49%;
+  border-style: none;
+  background-color: white;
+}
+
+.speed {
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+}
+
+.speed .number {
+  font-size: 2rem;
+}
+
+.speed .units {
+  font-size: 1.1rem;
+}

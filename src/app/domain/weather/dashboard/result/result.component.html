@@ -1,0 +1,40 @@
+<div *ngIf="current">
+  <div class="weather">
+    <div>{{ current.condition.text }}</div>
+    <div class="first-row">
+      <img [src]="current.condition.icon" [alt]="current.condition.text" />
+      <div class="temperature">
+        <app-gauge [value]="current.temp_c" unit="°"></app-gauge>
+        <span class="smaller feels-like"
+          >feels like
+          <span
+            class="tempsmall"
+            [ngStyle]="{ color: current.temp_c > -1 ? 'red' : 'blue' }"
+            >{{ current.feelslike_c | number : "1.0-0" }}°</span
+          ></span
+        >
+      </div>
+      <div class="rain">
+        {{ current.precip_mm }}<span class="smaller">mm</span>
+      </div>
+
+      <div class="wind">
+        <div
+          class="windArrow"
+          [ngStyle]="{ transform: 'rotate(' + current.wind_degree + 'deg)' }"
+        >
+          ↑
+        </div>
+        <!-- kph to m/s -->
+        <div class="windtext">
+          {{ (current.wind_kph * 1000) / 60 / 60 | number : "1.0-0"
+          }}<span class="smaller">
+            ({{ (current.gust_kph * 1000) / 60 / 60 | number : "1.0-0" }})
+            m/s</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="last-updated">Last updated: {{ current.last_updated }}</div>
+</div>

@@ -1,0 +1,9 @@
+<div *ngIf="location" class="location">
+  <div class="location-name">{{ location.name }}</div>
+  <div>{{ location.country }}-{{ location.region }}</div>
+</div>
+<div *ngIf="isWaiting" class="location-name">Searching...</div>
+<div *ngIf="errorHasOccurred" class="location-name red">
+  Not Searching :/ <br />
+  Search again?
+</div>

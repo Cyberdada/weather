@@ -1,0 +1,20 @@
+<div class="search-input">
+  <div *ngIf="isSearching">
+    <input
+      class="search-input-field"
+      type="text"
+      placeholder="Search a location"
+      aria-label="Search a location"
+      (change)="filterChanged($event)"
+      (blur)="isSearching = false"
+    />
+  </div>
+  <div *ngIf="!isSearching" class="not-searching">
+    <app-location
+      [location]="location"
+      [isWaiting]="isWaiting"
+      [errorHasOccurred]="errorHasOccurred"
+    ></app-location>
+    <button class="search-button" (click)="isSearching = true">Search</button>
+  </div>
+</div>
