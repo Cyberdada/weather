@@ -1,5 +1,5 @@
 <div *ngIf="current">
-  <div class="weather">
+  <div class="flex-col m-2 p-4 bg-white max-w-2xl border rounded-lg border-blue-200">
     <div>{{ current.condition.text }}</div>
     <div class="first-row">
       <img [src]="current.condition.icon" [alt]="current.condition.text" />
