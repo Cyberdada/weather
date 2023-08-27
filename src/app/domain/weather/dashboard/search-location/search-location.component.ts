@@ -4,6 +4,8 @@ import {
   Component,
   EventEmitter,
   Input,
+  OnDestroy,
+  OnInit,
   Output,
 } from '@angular/core';
 import { Observable, Subject, takeUntil } from 'rxjs';
@@ -17,10 +19,13 @@ import { ErrorHandlerService } from 'src/app/shared/error-handler.service';
   styleUrls: ['./search-location.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SearchLocationComponent {
-  theLocation: LocationCurrent | undefined;
+export class SearchLocationComponent implements OnInit, OnDestroy {
+
   private destroySubject$: Subject<void> = new Subject();
+
+  theLocation: LocationCurrent | undefined;
   error$!: Observable<ApplicationHttpError>;
+
   @Input() set location(value: LocationCurrent | undefined) {
     this.theLocation = value;
     this.isWaiting = false;
@@ -40,7 +45,7 @@ export class SearchLocationComponent {
 
   ngOnInit(): void {
     this.error$ = this.errorHandlerService.error$;
-    this.error$.pipe(takeUntil(this.destroySubject$)).subscribe((itm) => {
+    this.error$.pipe(takeUntil(this.destroySubject$)).subscribe(() => {
       this.isWaiting = false;
       this.errorHasOccurred = true;
       this.cdr.detectChanges();

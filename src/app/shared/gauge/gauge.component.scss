@@ -1,7 +1,5 @@
 .ring {
   position: relative;
-  width: 60px;
-  height: 60px;
   background-image: radial-gradient(white 0, white 50%, transparent 50%),
     conic-gradient(
       lightblue 0,
@@ -40,10 +38,5 @@
   text-align: center;
 }
 
-.speed .number {
-  font-size: 2rem;
-}
 
-.speed .units {
-  font-size: 1.1rem;
-}
+

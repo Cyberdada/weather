@@ -1,7 +1,9 @@
 <div class="container">
-  <div class="ring">
+  <div class="ring" [ngStyle]="{
+    'height.px': size, 'width.px': size}"
+  >
     <div class="speed">
-      <div class="number" [ngStyle]="{ color: value > -1 ? 'red' : 'blue' }">
+      <div [ngStyle]="{  'font-size.px': size/1.9, color: value > -1 ? 'red' : 'blue' }">
         {{ value | number : "1.0-0" }}
       </div>
     </div>
@@ -12,7 +14,7 @@
       alt="needle"
       src="/assets/weather/needle.png"
       [ngStyle]="{
-        transform: 'rotate(' + value * 2 + 'deg) translate(-25%, -50%)'
+        'height.px': size/2 ,transform: 'rotate(' + value * 2 + 'deg) translate(-25%, -50%)'
       }"
     />
   </div>

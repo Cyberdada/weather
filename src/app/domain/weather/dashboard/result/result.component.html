@@ -4,7 +4,7 @@
     <div class="first-row">
       <img [src]="current.condition.icon" [alt]="current.condition.text" />
       <div class="temperature">
-        <app-gauge [value]="current.temp_c" unit="°"></app-gauge>
+        <app-gauge [value]="current.temp_c" unit="°" [size]="60"></app-gauge>
         <span class="smaller feels-like"
           >feels like
           <span

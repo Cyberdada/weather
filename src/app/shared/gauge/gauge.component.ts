@@ -17,4 +17,5 @@ import { Component, Input } from '@angular/core';
 })
 export class GaugeComponent {
   @Input() value = 0;
+  @Input() size = 60;
 }
